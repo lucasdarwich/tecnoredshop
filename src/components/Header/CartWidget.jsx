@@ -2,9 +2,12 @@ import { BsCart } from "react-icons/bs";
 
 function CartWidget() {
   return (
-    <a href=''>
-      <BsCart />
-    </a>
+    <div>
+      <span>
+        <BsCart />
+      </span>
+      <span>2</span>
+    </div>
   );
 }
 

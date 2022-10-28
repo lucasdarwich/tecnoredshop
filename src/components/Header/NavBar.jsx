@@ -3,10 +3,30 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import CartWidget from "./CartWidget";
 import logobrandnobg from "../../images/logobrandnobg.png";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { dataBase } from "../../services/FirebaseConfig";
 
 function NavBar() {
-  const styleMenu = { color: "rgb(42, 51, 183)", fontWeight: "600" };
+  const [categorias, setCategorias] = useState([]);
+
+  useEffect(() => {
+    const collectionCategorias = collection(dataBase, "categorias");
+    getDocs(collectionCategorias)
+      .then((res) => {
+        const categories = res.docs.map((cat) => {
+          return {
+            id: cat.id,
+            ...cat.data(),
+          };
+        });
+        setCategorias(categories);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <header>
@@ -35,18 +55,15 @@ function NavBar() {
               className='col-lg-1 offset-lg-1 flex-grow-1 '
               style={{ justifyContent: "space-between" }}
             >
-              <NavLink to='/category/FO' style={styleMenu}>
-                Fibra Óptica
-              </NavLink>
-              <NavLink to='/category/ONT' style={styleMenu}>
-                GPON
-              </NavLink>
-              <NavLink to='/category/NETWORKING' style={styleMenu}>
-                Networking
-              </NavLink>
-              <NavLink to='/category/TOOLS' style={styleMenu}>
-                Herramientas
-              </NavLink>
+              {categorias.map((cat) => (
+                <NavLink
+                  to={`/category/${cat.path}`}
+                  key={cat.id}
+                  className='navegacion'
+                >
+                  {cat.name}
+                </NavLink>
+              ))}
               <NavLink to='/cart'>
                 <CartWidget />
               </NavLink>

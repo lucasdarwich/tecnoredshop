@@ -13,10 +13,10 @@ const Item = ({ prod }) => {
           <Card.Text>
             Marca: {prod.brand}
             <br></br>
-            Precio: USD {prod.price}
+            Precio: $ {prod.price}
           </Card.Text>
           <Link to={`/item/${prod.id}`}>
-            <Button variant='primary'>+Info</Button>
+            <Button variant='primary'>Más Detalles</Button>
           </Link>
         </Card.Body>
       </Card>

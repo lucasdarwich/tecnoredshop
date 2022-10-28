@@ -1,33 +1,43 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { products } from "../../mock/productos";
 import { useParams } from "react-router-dom";
+import { collection, doc, getDoc } from "firebase/firestore";
+import { dataBase } from "../../services/FirebaseConfig";
+import { MoonLoader } from "react-spinners";
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
-
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const traerProducto = () => {
-      return new Promise((res, rej) => {
-        const producto = products.find((prod) => prod.id === id);
+    const coleciionProductos = collection(dataBase, "items");
+    const ref = doc(coleciionProductos, id);
 
-        setTimeout(() => {
-          res(producto);
-        }, 2000);
-      });
-    };
-    traerProducto()
+    getDoc(ref)
       .then((res) => {
-        setItem(res);
+        setItem({
+          id: res.id,
+          ...res.data(),
+        });
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
+
+    return () => setLoading(true);
   }, [id]);
 
-  console.log(item);
+  if (loading) {
+    return (
+      <div className='loading'>
+        <MoonLoader color='#36d7b7' />;
+      </div>
+    );
+  }
 
   return (
     <main>

@@ -1,14 +1,29 @@
 import { BsCart } from "react-icons/bs";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 function CartWidget() {
-  return (
-    <div>
-      <span>
-        <BsCart />
-      </span>
-      <span>2</span>
-    </div>
-  );
+  const { totalUnidades } = useContext(CartContext);
+  const total = totalUnidades();
+
+  if (total === 0) {
+    return (
+      <div>
+        <span>
+          <BsCart />
+        </span>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <span>
+          <BsCart />
+        </span>
+        <span>{total}</span>
+      </div>
+    );
+  }
 }
 
 export default CartWidget;

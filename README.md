@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# E-commerce Tecnored Shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](./src/images/logobrandnobg.png)
 
-## Available Scripts
+Proyecto Final de React.JS
 
-In the project directory, you can run:
+Tienda de E-commerce en donde se podran adquirir productos necesarios para despliegue y/o mantenimiento de redes de Fibra Óptica.
 
-### `npm start`
+## Librerías utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Firebase](https://firebase.google.com/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  Se utiliza para alojar la base de datos de los productos del proyecto en Firesotre Databse. También se utiliza para darle dinamismo al menu de navegación/categorias.
 
-### `npm test`
+- [react-bootstrap](https://react-bootstrap.github.io)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  Se utiliza la libreria de Bootstrap para darle estilos al proyecto.
 
-### `npm run build`
+- [react-router-dom](https://v5.reactrouter.com/web/guides/quick-start)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  Utilizada para desarrollar la navegabilidad básica en la aplicación.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [react-toastify](https://github.com/fkhadra/react-toastify)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  Se utiliza para notificar al usuario la cantidad de productos que agrega al carrito.
 
-### `npm run eject`
+- [react-spinners](https://www.davidhu.io/react-spinners/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  Utilizada para determinar el estado de carga o "loading" de los componentes, lo que brinda una mejor experiencia al usuario mientras navega a traves de las categorias y/o los detalles de los productos.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [react-icons](https://react-icons.github.io/react-icons/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  Utilizada para agregar iconos a nuestra aplicación
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Funcionalidades del proyecto
 
-## Learn More
+- El usuario puede:
+  - Navegar por todos los productos de la tienda.
+  - Ver los detalles de cada producto.
+  - Ingresar en todo momento al Carrito.
+  - Agregar items al Carrito, en donde nunca podra agregar cantidades superiores al stock disponible de cada item.
+  - Eliminar un item espécifico del Carrito.
+  - Eliminar todos los items agregados al Carrito.
+  - Ver la descripción, precio unitario, cantidades y precio total de los productos agregados al carrito.
+  - Realizar la compra a traves de un formulario, el cual le solicita al usuario, entre otras cosas, ingresar 2 veces el correo electronico. Los correos deben coincidir, caso contrario, no se podra proseguir con la compra.
+  - Finalizada la compra, el usuario obtengra su Núnero de Orden.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Pasos para correr el proyecto en local
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clonar el repositorio
 
-### Code Splitting
+```
+git clone https://github.com/lucasdarwich/tecnoredshop.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Abrirlo en [VSC](https://code.visualstudio.com) (o en otro editor de código) e instalar las dependencias
 
-### Analyzing the Bundle Size
+```
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. Correr el proyecto en local
 
-### Making a Progressive Web App
+```
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Live Demo

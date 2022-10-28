@@ -65,4 +65,10 @@ npm install
 npm start
 ```
 
+### Variables de Entorno
+
+Como pueden afectar al comportamiento en la ejecución de la apliciación, las mimsas no se encuentran disponibles.
+
 ### Live Demo
+
+[Visualizar Demo de la App](https://tecnoredshop.vercel.app)

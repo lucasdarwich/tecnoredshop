@@ -68,7 +68,7 @@ const Cart = () => {
         </tfoot>
       </Table>
       <button className='btn btn-danger marginRight' onClick={borrarCarrito}>
-        <small>Elimintar Carrito</small>
+        <small>Eliminar Carrito</small>
       </button>
       <Link to='/checkout'>
         <button className='btn btn-success'>
